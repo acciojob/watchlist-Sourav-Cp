@@ -31,7 +31,7 @@ public class MovieController {
     {
         try {
             movieService.addMovieDirectorPair(movie, director);
-            return new ResponseEntity<>("Movie-Director Pair Added", HttpStatus.OK);
+            return new ResponseEntity<>("Movie-Director Pair Added", HttpStatus.CREATED);
            }
         catch (MovieNotPresentException ex)
         {
@@ -48,7 +48,7 @@ public class MovieController {
     {
         try {
            Movie movies = movieService.getMovieByName(name);
-           return new ResponseEntity<>(movies,HttpStatus.OK);
+           return new ResponseEntity<>(movies,HttpStatus.CREATED);
         }
         catch (MovieNotPresentException ex)
         {
@@ -61,7 +61,7 @@ public class MovieController {
     {
         try {
             Director directors = movieService.getDirectorByName(name);
-            return new ResponseEntity<>(directors,HttpStatus.OK);
+            return new ResponseEntity<>(directors,HttpStatus.CREATED);
         }
         catch (DirectorNotPresentException ex)
         {
@@ -73,28 +73,28 @@ public class MovieController {
     public ResponseEntity<List<String>> getMoviesByDirector(@PathVariable String director)
     {
         List<String> movies = movieService.getAllMoviesByDirector(director);
-        return new ResponseEntity<>(movies,HttpStatus.OK);
+        return new ResponseEntity<>(movies,HttpStatus.CREATED);
     }
 
     @GetMapping("/get-all-movies")
     public ResponseEntity<List<String>> getAllMovies()
     {
         List<String> movies = movieService.getAllStudents();
-        return new ResponseEntity<>(movies,HttpStatus.OK);
+        return new ResponseEntity<>(movies,HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete-director-by-name")
     public ResponseEntity<String> deleteDirectorByName(@RequestParam String director)
     {
        movieService.deleteDirectorByName(director);
-       return new ResponseEntity<>("Director removed from database",HttpStatus.OK);
+       return new ResponseEntity<>("Director removed from database",HttpStatus.CREATED);
     }
 
     @DeleteMapping("/delete-all-directors")
     public ResponseEntity<String> deleteAllDirectors()
     {
         movieService.deleteAllDirectors();
-        return new ResponseEntity<>("All directors deleted",HttpStatus.OK);
+        return new ResponseEntity<>("All directors deleted",HttpStatus.CREATED);
     }
 
 }
