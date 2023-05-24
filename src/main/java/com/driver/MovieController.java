@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 @RestController
-@RequestMapping("movies")
+@RequestMapping("/movies")
 public class MovieController {
 
     private MovieService movieService = new MovieService();
