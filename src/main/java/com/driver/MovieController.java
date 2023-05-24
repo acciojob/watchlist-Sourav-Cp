@@ -79,7 +79,7 @@ public class MovieController {
     @GetMapping("/get-all-movies")
     public ResponseEntity<List<String>> getAllMovies()
     {
-        List<String> movies = movieService.getAllStudents();
+        List<String> movies = movieService.getAllMovies();
         return new ResponseEntity<>(movies,HttpStatus.CREATED);
     }
 

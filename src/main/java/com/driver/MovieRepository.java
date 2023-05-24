@@ -48,7 +48,7 @@ public class MovieRepository {
     {
         return movieDirectorPair.getOrDefault(director,new ArrayList<>());
     }
-    public List<String> getAllStudents()
+    public List<String> getAllMovies()
     {
         return new ArrayList<>(movieData.keySet());
     }
